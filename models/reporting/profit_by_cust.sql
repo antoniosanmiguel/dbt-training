@@ -11,22 +11,13 @@ customer as (
 
 cust_tlv as (
     select 
-        customerid,
-        sum(profit) as TLV
-    from orders
-    group by 1
-),
-
-cust_name as (
-    select 
-
         c.customerid,
         c.customername,
-        ct.tlv
-
-    from cust_tlv ct
+        sum(profit) as TLV
+    from orders o
         join  customer c
-        on ct.customerid = c.customerid
+        on o.customerid = c.customerid
+    group by 1, 2
 )
 
-select * from cust_name
+select * from cust_tlv
