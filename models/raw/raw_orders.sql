@@ -1,12 +1,7 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
 
 with orders as (
     select  * from 
-    RAW.GLOBALMART.ORDERS
+    {{ source('ecommerce', 'orders') }}
 )
 
 select * from orders

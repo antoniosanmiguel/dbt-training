@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+    - name: ecommerce
+      description: This is a replica of the Postgres database used by our app
+      database: raw
+      schema: globalmart
+      tables:
+          - name: customer
+            description: Raw customers data, one record per customer.
+            columns:
+            - name: customerid
+              description: Primary Key for customers data
+              tests:
+                - unique
+                - not_null
+                
+          - name: orders
+            description: Raw orders data, one record per order. Includes cancelled and deleted orders.
+            columns:
+            - name: orderid
+              description: Primary Key for orders data
+              tests:
+                # unique, la orderid 1418 esta duplicada porque pide productos distintos           
+                - not_null            
+      
+          - name: product
+            description: Raw products data, one record per product.
+            columns:
+            - name: productid
+              description: Primary Key for product data
+              tests:
+                # unique, tambien tiene errores              
+                - not_null            
+      
