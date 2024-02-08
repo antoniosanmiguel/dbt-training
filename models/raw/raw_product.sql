@@ -4,7 +4,7 @@
     )
 }}
 
-with products as (
+with product as (
     select  * from 
     RAW.GLOBALMART.PRODUCT
 )
