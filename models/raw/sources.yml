@@ -14,13 +14,14 @@ sources:
               tests:
                 - unique
                 - not_null
+                
           - name: orders
             description: Raw orders data, one record per order. Includes cancelled and deleted orders.
             columns:
             - name: orderid
               description: Primary Key for orders data
               tests:
-                - unique              
+                # unique, la orderid 1418 esta duplicada porque pide productos distintos           
                 - not_null            
       
           - name: product
@@ -29,6 +30,6 @@ sources:
             - name: productid
               description: Primary Key for product data
               tests:
-                - unique              
+                # unique, tambien tiene errores              
                 - not_null            
       
