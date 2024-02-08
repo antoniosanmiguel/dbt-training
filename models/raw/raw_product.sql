@@ -9,4 +9,4 @@ with product as (
     RAW.GLOBALMART.PRODUCT
 )
 
-select * from products
+select * from product
